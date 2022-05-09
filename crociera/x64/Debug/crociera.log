@@ -1,9 +1,9 @@
 ﻿  Origine.c
-C:\Users\Utente\Desktop\SCUOLA\crociera\Origine.c(29,12): warning C4244: 'funzione': conversione da 'time_t' a 'unsigned int'. Possibile perdita di dati.
-C:\Users\Utente\Desktop\SCUOLA\crociera\Origine.c(35,24): warning C4047: '=': 'char' differisce da 'char [1]' nei livelli di riferimento indiretto
-C:\Users\Utente\Desktop\SCUOLA\crociera\Origine.c(36,27): warning C4047: '=': 'char' differisce da 'char [1]' nei livelli di riferimento indiretto
-C:\Users\Utente\Desktop\SCUOLA\crociera\Origine.c(121,50): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
-C:\Users\Utente\Desktop\SCUOLA\crociera\Origine.c(127,50): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
-C:\Users\Utente\Desktop\SCUOLA\crociera\Origine.c(141,50): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
-C:\Users\Utente\Desktop\SCUOLA\crociera\Origine.c(154,50): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
-  crociera.vcxproj -> C:\Users\Utente\Desktop\SCUOLA\crociera\x64\Debug\crociera.exe
+C:\Users\Andrea\Desktop\SCUOLA\crociera\Origine.c(43,12): warning C4244: 'funzione': conversione da 'time_t' a 'unsigned int'. Possibile perdita di dati.
+C:\Users\Andrea\Desktop\SCUOLA\crociera\Origine.c(49,24): warning C4047: '=': 'char' differisce da 'char [1]' nei livelli di riferimento indiretto
+C:\Users\Andrea\Desktop\SCUOLA\crociera\Origine.c(50,27): warning C4047: '=': 'char' differisce da 'char [1]' nei livelli di riferimento indiretto
+C:\Users\Andrea\Desktop\SCUOLA\crociera\Origine.c(142,50): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+C:\Users\Andrea\Desktop\SCUOLA\crociera\Origine.c(151,50): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+C:\Users\Andrea\Desktop\SCUOLA\crociera\Origine.c(171,50): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+C:\Users\Andrea\Desktop\SCUOLA\crociera\Origine.c(191,50): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+  crociera.vcxproj -> C:\Users\Andrea\Desktop\SCUOLA\crociera\x64\Debug\crociera.exe

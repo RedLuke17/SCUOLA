@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -21,23 +21,17 @@ int cabine[4];	//il numero di cabine occupate
 				//[2] cabine da 3;
 				//[3] cabine da 4;
 
-int famiglia; //� il numero che definisce da quanto � formata la famiglia
+int famiglia; //ï¿½ il numero che definisce da quanto ï¿½ formata la famiglia
 
-int famiglie[4]; //� il numero che acquisisce da quanto � formata la famiglia per ogni rispettiva posizione
+int famiglie[4]; //ï¿½ il numero che acquisisce da quanto ï¿½ formata la famiglia per ogni rispettiva posizione
 
-int totfamiglie[4]; //� il numero che somma alla variabile famiglia per non far sovrascrivere i valori precedenti a quelli successivi per ogni posizione
+int totfamiglie[4]; //ï¿½ il numero che somma alla variabile famiglia per non far sovrascrivere i valori precedenti a quelli successivi per ogni posizione
 
 float soldispesi[4][40];
 
 float totsoldispesi;
 
-void registrazione1();
-
-void registrazione2();
-
-void registrazione3();
-
-void registrazione4();
+void registrazione();
 
 //1 luca rossi 10 10 2010
 //2 pollo lollo 1 1 2001 billone supremo 2 2 2002
@@ -65,289 +59,185 @@ int main()
 	{
 		printf("\nin quanti siete a partecipare alla crociera?");
 		scanf("%d", &famiglia);
-		
+
 		switch (famiglia)
 		{
-			default:
-				printf("\nil numero inserito e' troppo grande, la nostra crociera ospita un massimo di 4 persone, riprova a inserire il numero corretto:\n");
-				j--;
+		default:
+			printf("\nil numero inserito e' troppo grande, la nostra crociera ospita un massimo di 4 persone, riprova a inserire il numero corretto:\n");
+			j--;
 			break;
-					
-				case 4:
-					if (cabine[3] < 3)
-					{
-						cabine[3]++;
-						famiglie[3] = famiglia;
-						registrazione4();
-						break;
-					}
-					else
-					{
-						j--;
-						printf("ci spiace ma le cabine da 4 sono tutte occupate");
-						break;
-					}
-			
-					case 3:
-						if (cabine[2] < 3)
-						{
-							cabine[2]++;
-							famiglie[2] = famiglia;
-							registrazione3();
-							break;
-						}
-						else
-						{
-							j--;
-							printf("ci spiace ma le cabine da 3 sono tutte occupate");
-							break;
-						}
-				
-						case 2:
-							if (cabine[1] < 2)
-							{
-								cabine[1]++;
-								famiglie[1] = famiglia;
-								registrazione2();
-								break;
-							}
-							else
-							{
-								j--;
-								printf("ci spiace ma le cabine da 2 sono tutte occupate");
-								break;
-							}
 
-							case 1:
-								if (cabine[0] < 2) {
-									cabine[0]++;
-									famiglie[0] = famiglia;
-									registrazione1();
-									break;
-								}
-								else
-								{
-									j--;
-									printf("ci spiace ma le cabine da 1 sono tutte occupate");
-									break;
-								}
+		case 4:
+			if (cabine[3] < 10)
+			{
+				cabine[3]++;
+				famiglie[3] = famiglia;
+				famiglia--;
+				registrazione();
+				break;
+			}
+			else
+			{
+				j--;
+				printf("ci spiace ma le cabine da 4 sono tutte occupate");
+				break;
+			}
+
+		case 3:
+			if (cabine[2] < 10)
+			{
+				cabine[2]++;
+				famiglie[2] = famiglia;
+				famiglia--;
+				registrazione();
+				break;
+			}
+			else
+			{
+				j--;
+				printf("ci spiace ma le cabine da 3 sono tutte occupate");
+				break;
+			}
+
+		case 2:
+			if (cabine[1] < 10)
+			{
+				cabine[1]++;
+				famiglie[1] = famiglia;
+				famiglia--;
+				registrazione();
+				break;
+			}
+			else
+			{
+				j--;
+				printf("ci spiace ma le cabine da 2 sono tutte occupate");
+				break;
+			}
+
+		case 1:
+			if (cabine[0] < 10) {
+				cabine[0]++;
+				famiglie[0] = famiglia;
+				famiglia--;
+				registrazione();
+				break;
+			}
+			else
+			{
+				j--;
+				printf("ci spiace ma le cabine da 1 sono tutte occupate");
+				break;
+			}
 		}
 	}
 
-//stampa persone nelle cabine da 1
+	//stampa persone nelle cabine da 1
 	for (i = 0; i < cabine[0]; i++)
 	{
 		if (i == 0)
 		{
 			printf("\nnelle cabine da 1 ci sono:\n");
 		}
-			soldispesi[0][i] = ((double)rand() / RAND_MAX) * 700;
-			printf("persona numero %d ha speso %.2f:\t", i + 1, soldispesi[0][i]);
-			printf("%s %s\t%d %d %d\n", nome[0][i], cognome[0][i], giorno[0][i], mese[0][i], anno[0][i]);
+		soldispesi[0][i] = ((double)rand() / RAND_MAX) * 700;
+		printf("persona numero %d ha speso %.2f:\t", i + 1, soldispesi[0][i]);
+		printf("%s %s\t%d %d %d\n", nome[0][i], cognome[0][i], giorno[0][i], mese[0][i], anno[0][i]);
 	}
 
-//stampa persone nelle cabine da 2
-//moltiplico il numero delle cabine occupate per la grandezza delle cabine stesse, quindi se la cabina � da due ed � occupata solo una cabina,per stampare due persone moltiplica 1*2
-		for (i = 0; i < cabine[1] * 2; i++)
+	//stampa persone nelle cabine da 2
+	//moltiplico il numero delle cabine occupate per la grandezza delle cabine stesse, quindi se la cabina ï¿½ da due ed ï¿½ occupata solo una cabina,per stampare due persone moltiplica 1*2
+	for (i = 0; i < cabine[1] * 2; i++)
+	{
+		soldispesi[1][i] = ((double)rand() / RAND_MAX) * 700;
+
+		if (i == 0)
 		{
-			soldispesi[1][i] = ((double)rand() / RAND_MAX) * 700;
-				
-				if (i == 0)
-				{
-					printf("nelle cabine da 2 ci sono:\n");
-				}
-					
-					printf("persona numero %d ha speso %.2f:\t", i + 1, soldispesi[1][i]);
-					printf("%s %s\t%d %d %d\n", nome[1][i], cognome[1][i], giorno[1][i], mese[1][i], anno[1][i]);
-
-						if (i == 1 || i == 3 || i == 5 || i == 7 || i == 9 || i == 11)
-						{
-							totsoldispesi = soldispesi[1][i - 1] + soldispesi[1][i];
-							printf("cabina numero %d della famiglia %s ha speso un totale di %.2f\n\n", i - 1, cognome[1][i - 1], totsoldispesi);
-						}
+			printf("nelle cabine da 2 ci sono:\n");
 		}
 
-//stampa persone nelle cabine da 3
-			for (i = 0; i < cabine[2] * 3; i++)
-			{
-				soldispesi[2][i] = ((double)rand() / RAND_MAX) * 900;
-		
-					if (i == 0)
-					{
-						printf("nelle cabine da 3 ci sono:\n");
-					}
-				
-						printf("persona numero %d ha speso %.2f:\t", i + 1, soldispesi[2][i]);
-						printf("%s %s\t%d %d %d\n", nome[2][i], cognome[2][i], giorno[2][i], mese[2][i], anno[2][i]);
-		
-							if (i == 2 || i == 5 || i == 8 || i == 11 || i == 14)
-							{
-								totsoldispesi = soldispesi[2][i - 2] + soldispesi[2][i - 1] + soldispesi[2][i];
-								printf("cabina numero %d della famiglia %s ha speso un totale di %.2f\n\n", i - 2, cognome[2][i - 2], totsoldispesi);
-							}
-			}
+		printf("persona numero %d ha speso %.2f:\t", i + 1, soldispesi[1][i]);
+		printf("%s %s\t%d %d %d\n", nome[1][i], cognome[1][i], giorno[1][i], mese[1][i], anno[1][i]);
 
-//stampa persone nelle cabine da 4
-				for (i = 0; i < cabine[3] * 4 ; i++)
-				{
-					soldispesi[3][i] = ((double)rand() / RAND_MAX) * 900;
-		
-						if (i == 0)
-						{
-							printf("nelle cabine da 4 ci sono:\n");
-						}
-		
-							printf("persona numero %d ha speso %.2f:\t", i + 1, soldispesi[3][i]);
-							printf("%s %s\t%d %d %d\n", nome[3][i], cognome[3][i], giorno[3][i], mese[3][i], anno[3][i]);
-					
-								if (i == 3 || i == 7 || i == 11 || i == 15 || i == 19)
-								{
-									totsoldispesi = soldispesi[3][i - 3] + soldispesi[3][i - 2] + soldispesi[3][i - 1] + soldispesi[3][i];
-									printf("cabina numero %d della famiglia %s ha speso un totale di %.2f\n\n", i - 3, cognome[3][i - 3], totsoldispesi);
-								}
-				}
-}
-
-void registrazione1() {
-	for (i = totfamiglie[0]; i < famiglie[0] + totfamiglie[0]; i++)
-	{
-		printf("\ninserisci nome:\t");
-		scanf("%s", nome[0][i]);
-
-			printf("\ninserisci cognome:\t");
-			scanf("%s", cognome[0][i]);
-
-				printf("\ninserisci giorno di nascita:\t");
-				scanf("%d", &giorno[0][i]);
-				while (giorno[0][i] < 0 || giorno[0][i] > 32)
-				{
-					printf("inserisci un giorno di nascita reale:\t");
-					scanf("%d", &giorno[0][i]);
-				}
-
-					printf("\ninserisci mese di nascita:\t");
-					scanf("%d", &mese[0][i]);
-					while (mese[0][i] < 0 || mese[0][i] > 12)
-					{
-						printf("inserisci un  mese di nascita reale:\t");
-						scanf("%d", &mese[0][i]);
-					}
-
-						printf("\ninserisci anno di nascita:\t");
-						scanf("%d", &anno[0][i]);
-						while (anno[0][i] < 1960 || anno[0][i] > 2023)
-						{
-							printf("inserisci un anno di nascita reale:\t");
-							scanf("%d", &anno[0][i]);
-						}
+		if (i == 1 || i == 3 || i == 5 || i == 7 || i == 9 || i == 11)
+		{
+			totsoldispesi = soldispesi[1][i - 1] + soldispesi[1][i];
+			printf("cabina numero %d della famiglia %s ha speso un totale di %.2f\n\n", i - 1, cognome[1][i - 1], totsoldispesi);
+		}
 	}
-	totfamiglie[0] += famiglie[0];
+
+	//stampa persone nelle cabine da 3
+	for (i = 0; i < cabine[2] * 3; i++)
+	{
+		soldispesi[2][i] = ((double)rand() / RAND_MAX) * 900;
+
+		if (i == 0)
+		{
+			printf("nelle cabine da 3 ci sono:\n");
+		}
+
+		printf("persona numero %d ha speso %.2f:\t", i + 1, soldispesi[2][i]);
+		printf("%s %s\t%d %d %d\n", nome[2][i], cognome[2][i], giorno[2][i], mese[2][i], anno[2][i]);
+
+		if (i == 2 || i == 5 || i == 8 || i == 11 || i == 14)
+		{
+			totsoldispesi = soldispesi[2][i - 2] + soldispesi[2][i - 1] + soldispesi[2][i];
+			printf("cabina numero %d della famiglia %s ha speso un totale di %.2f\n\n", i - 2, cognome[2][i - 2], totsoldispesi);
+		}
+	}
+
+	//stampa persone nelle cabine da 4
+	for (i = 0; i < cabine[3] * 4; i++)
+	{
+		soldispesi[3][i] = ((double)rand() / RAND_MAX) * 900;
+
+		if (i == 0)
+		{
+			printf("nelle cabine da 4 ci sono:\n");
+		}
+
+		printf("persona numero %d ha speso %.2f:\t", i + 1, soldispesi[3][i]);
+		printf("%s %s\t%d %d %d\n", nome[3][i], cognome[3][i], giorno[3][i], mese[3][i], anno[3][i]);
+
+		if (i == 3 || i == 7 || i == 11 || i == 15 || i == 19)
+		{
+			totsoldispesi = soldispesi[3][i - 3] + soldispesi[3][i - 2] + soldispesi[3][i - 1] + soldispesi[3][i];
+			printf("cabina numero %d della famiglia %s ha speso un totale di %.2f\n\n", i - 3, cognome[3][i - 3], totsoldispesi);
+		}
+	}
 }
 
-void registrazione2() {
-	for (i = totfamiglie[1]; i < famiglie[1] + totfamiglie[1]; i++)
+void registrazione() {
+	for (i = totfamiglie[famiglia]; i < famiglie[famiglia] + totfamiglie[famiglia]; i++)
 	{
 		printf("\ninserisci nome:\t");
-		scanf("%s", nome[1][i]);
+		scanf("%s", nome[famiglia][i]);
 
 		printf("\ninserisci cognome:\t");
-		scanf("%s", cognome[1][i]);
+		scanf("%s", cognome[famiglia][i]);
 
 		printf("\ninserisci giorno di nascita:\t");
-		scanf("%d", &giorno[1][i]);
-
-		while (giorno[1][i] < 0 || giorno[1][i] > 32) {
+		scanf("%d", &giorno[famiglia][i]);
+		while (giorno[famiglia][i] < 0 || giorno[famiglia][i] > 32)
+		{
 			printf("inserisci un giorno di nascita reale:\t");
-			scanf("%d", &giorno[1][i]);
+			scanf("%d", &giorno[famiglia][i]);
 		}
 
 		printf("\ninserisci mese di nascita:\t");
-		scanf("%d", &mese[1][i]);
-
-		while (mese[1][i] < 0 || mese[1][i] > 12) {
+		scanf("%d", &mese[famiglia][i]);
+		while (mese[famiglia][i] < 0 || mese[famiglia][i] > 12)
+		{
 			printf("inserisci un  mese di nascita reale:\t");
-			scanf("%d", &mese[1][i]);
+			scanf("%d", &mese[famiglia][i]);
 		}
 
 		printf("\ninserisci anno di nascita:\t");
-		scanf("%d", &anno[1][i]);
-
-		while (anno[1][i] < 1960 || anno[1][i] > 2023) {
+		scanf("%d", &anno[famiglia][i]);
+		while (anno[famiglia][i] < 1960 || anno[famiglia][i] > 2023)
+		{
 			printf("inserisci un anno di nascita reale:\t");
-			scanf("%d", &anno[1][i]);
+			scanf("%d", &anno[famiglia][i]);
 		}
 	}
-	totfamiglie[1] += famiglie[1];
-}
-
-void registrazione3() {
-	for (i = totfamiglie[2]; i < famiglie[2] + totfamiglie[2]; i++)
-	{
-		printf("\ninserisci nome:\t");
-		scanf("%s", nome[2][i]);
-
-		printf("\ninserisci cognome:\t");
-		scanf("%s", cognome[2][i]);
-
-		printf("\ninserisci giorno di nascita:\t");
-		scanf("%d", &giorno[2][i]);
-
-		while (giorno[2][i] < 0 || giorno[2][i] > 32) {
-			printf("inserisci un giorno di nascita reale:\t");
-			scanf("%d", &giorno[2][i]);
-		}
-
-		printf("\ninserisci mese di nascita:\t");
-		scanf("%d", &mese[2][i]);
-
-		while (mese[2][i] < 0 || mese[2][i] > 12) {
-			printf("inserisci un  mese di nascita reale:\t");
-			scanf("%d", &mese[2][i]);
-		}
-
-		printf("\ninserisci anno di nascita:\t");
-		scanf("%d", &anno[2][i]);
-
-		while (anno[2][i] < 1960 || anno[2][i] > 2023) {
-			printf("inserisci un anno di nascita reale:\t");
-			scanf("%d", &anno[2][i]);
-		}
-	}
-	totfamiglie[2] += famiglie[2];
-}
-
-void registrazione4() {
-	for (i = totfamiglie[3]; i < famiglie[3] + totfamiglie[3]; i++)
-	{
-		printf("\ninserisci nome:\t");
-		scanf("%s", nome[3][i]);
-
-		printf("\ninserisci cognome:\t");
-		scanf("%s", cognome[3][i]);
-
-		printf("\ninserisci giorno di nascita:\t");
-		scanf("%d", &giorno[3][i]);
-
-		while (giorno[3][i] < 0 || giorno[3][i] > 32) {
-			printf("inserisci un giorno di nascita reale:\t");
-			scanf("%d", &giorno[3][i]);
-		}
-
-		printf("\ninserisci mese di nascita:\t");
-		scanf("%d", &mese[3][i]);
-
-		while (mese[3][i] < 0 || mese[3][i] > 12) {
-			printf("inserisci un  mese di nascita reale:\t");
-			scanf("%d", &mese[3][i]);
-		}
-
-		printf("\ninserisci anno di nascita:\t");
-		scanf("%d", &anno[3][i]);
-
-		while (anno[3][i] < 1960 || anno[3][i] > 2023) {
-			printf("inserisci un anno di nascita reale:\t");
-			scanf("%d", &anno[3][i]);
-		}
-	}
-	totfamiglie[3] += famiglie[3];
+	totfamiglie[famiglia] += famiglie[famiglia];
 }
