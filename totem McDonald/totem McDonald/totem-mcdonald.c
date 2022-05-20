@@ -59,13 +59,13 @@ int main()
 
 	int carrello[8];
 
-	float prezzoTotale[100];
+	float prezzoTotale[24];
 
 	float resocontoFinale = 0;
 
 	int cliente = 0;
 
-	for (i = 0; i < 100; i++)
+	for (i = 0; i < 24; i++)
 	{
 		prezzoTotale[i] = 0;
 	}
@@ -213,7 +213,7 @@ int main()
 	} while (cliente < 24);
 
 	
-	for (i = 0; i < 100; i++)
+	for (i = 0; i < 24; i++)
 	{
 		resocontoFinale += prezzoTotale[i];
 	}
